@@ -1,6 +1,6 @@
 // Trilingual (VI · EN · ZH) price list, A4 portrait, 2 sides. All prices = 4x the previous list.
 const fs = require('fs');
-const { d, C, r, p, cell, table, line } = require('./common');
+const { d, C, r, p, cell, table, line, logo, ADDR } = require('./common');
 
 const W = 11906, H = 16838, M = 540;
 const CW = W - 2 * M;
@@ -24,13 +24,16 @@ const tri = ([vi, en, zh], o = {}) => [
 const label = (t, color = C.gold) => p(r(t, { pt: 6.5, b: true, color, sp: 20, caps: true }), { after: 40 });
 
 // ---------- Header band ----------
-const header = table([CW], [[cell([
+const LG = 1500;
+const header = table([LG, CW - LG], [[cell([p(logo(78), { after: 0, align: d.AlignmentType.CENTER })],
+  { w: LG, fill: C.white, vAlign: d.VerticalAlign.CENTER, m: { top: 60, bottom: 60, left: 60, right: 60 },
+    borders: { top: line(C.green, 12), bottom: line(C.green, 12), left: line(C.green, 12), right: line(C.green, 12) } }), cell([
   p([r('RICHE LAW', { pt: 18, b: true, color: C.white, sp: 40 }),
-     r('    Bảng giá dịch vụ  ·  Service Price List  ·  服务价目表', { pt: 9, color: 'E8C98F' }),
+     r('    Bảng giá dịch vụ  ·  Service Price List  ·  服务价目表', { pt: 9, color: C.goldLight }),
      r('      richelaw.vn', { pt: 9, b: true, color: C.white })], { after: 40 }),
-  p(r('Pháp lý · Kế toán · Nhân sự cho doanh nghiệp tại Việt Nam   |   Legal · Accounting · HR for businesses in Vietnam   |   越南企业法律·会计·人事服务',
-    { pt: 6.5, color: C.paleGreenText }), { after: 0 }),
-], { w: CW, fill: C.green, m: { top: 170, bottom: 150, left: 220, right: 220 } })]]);
+  p(r('Pháp lý · Kế toán · Nhân sự cho doanh nghiệp tại Việt Nam  |  Legal · Accounting · HR for businesses in Vietnam  |  越南企业法律·会计·人事服务',
+    { pt: 6, color: C.paleGreenText }), { after: 0 }),
+], { w: CW - LG, fill: C.green, vAlign: d.VerticalAlign.CENTER, m: { top: 170, bottom: 150, left: 260, right: 220 } })]]);
 
 const SW = Math.floor(CW / 4), SL = CW - 3 * SW;
 const statCell = (n, vi, en, zh, w) => cell([
@@ -318,18 +321,18 @@ const startup = {
 
 const footer = table([CW], [[cell([
   p([
-    r('LIÊN HỆ · CONTACT · 联系我们     ', { pt: 7.5, b: true, color: 'E8C98F', sp: 10 }),
+    r('LIÊN HỆ · CONTACT · 联系我们     ', { pt: 7.5, b: true, color: C.goldLight, sp: 10 }),
     r('Hotline / Zalo: ', { pt: 7.5, color: C.paleGreenText }), r('0973 239 802', { pt: 10, b: true, color: C.white }),
     r('     Email: ', { pt: 7.5, color: C.paleGreenText }), r('nhom2lkd@gmail.com', { pt: 10, b: true, color: C.white }),
     r('     Website: ', { pt: 7.5, color: C.paleGreenText }), r('richelaw.vn', { pt: 10, b: true, color: C.white }),
   ], { after: 20, align: d.AlignmentType.CENTER }),
-  p(r('Công ty TNHH Đầu tư Riche Law · Riche Law Investment Co., Ltd. · Hà Nội, Việt Nam', { pt: 6.5, color: C.paleGreenText }), { after: 0, align: d.AlignmentType.CENTER }),
+  p(r(ADDR.VI + '  ·  ' + ADDR.EN + '  ·  ' + ADDR.ZH, { pt: 6, color: C.paleGreenText }), { after: 0, align: d.AlignmentType.CENTER }),
 ], { w: CW, fill: C.green, m: { top: 120, bottom: 110, left: 160, right: 160 } })]]);
 
 const side2 = [
   ...packageBlock(workPermit).map((x, i) => (i === 0 ? section(workPermit.no, ...workPermit.title, true) : x)),
   ...packageBlock(startup),
-  p(r('', { pt: 2 }), { after: 100 }),
+  p(r('', { pt: 2 }), { after: 40 }),
   footer,
 ];
 // first heading of side 2 starts a new page

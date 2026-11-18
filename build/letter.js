@@ -1,6 +1,6 @@
 // Invitation letter — A5 landscape, 2 sides, in English, Vietnamese and Chinese
 const fs = require('fs');
-const { d, C, r, p, cell, table, line } = require('./common');
+const { d, C, r, p, cell, table, line, logo, ADDR } = require('./common');
 const T = require('./letter_text');
 
 const W = 11906, H = 8391, M = 510;       // A5 landscape, ~0.9 cm margins
@@ -8,27 +8,30 @@ const CW = W - 2 * M;
 const LW = 3300, RW = CW - LW;
 const RED = 'C62828';
 
-function build(t, opts = {}) {
+function build(t0, opts = {}) {
+  const t = { ...t0, addr: ADDR[t0.code] };
   const k = t.scale || 1;                  // per-language body size factor
   // ---------- Side 1: brand panel + letter ----------
   const stat = (num, label) => [
-    p(r(num, { pt: 24, b: true, color: C.white }), { after: 0, line: 220 }),
-    p(r(label, { pt: 8, color: C.paleGreenText }), { after: 220 }),
+    p(r(num, { pt: 20, b: true, color: C.white }), { after: 0, line: 220 }),
+    p(r(label, { pt: 7.5, color: C.paleGreenText }), { after: 150 }),
   ];
   const left = cell([
-    p(r('RICHE LAW', { pt: 15, b: true, color: C.white, sp: 40 }), { after: 0 }),
-    p(r(t.tag1, { pt: 7.5, color: 'E8C98F', sp: 10 }), { after: 0 }),
-    p(r(t.tag2, { pt: 7.5, color: 'E8C98F' }), {
-      after: 240, border: { bottom: { style: d.BorderStyle.SINGLE, size: 6, color: C.gold, space: 8 } },
+    table([LW - 560], [[cell([p(logo(92), { after: 0, align: d.AlignmentType.CENTER })],
+      { w: LW - 560, fill: C.white, m: { top: 90, bottom: 70, left: 60, right: 60 } })]]),
+    p(r('', { pt: 2 }), { after: 120 }),
+    p(r(t.tag1, { pt: 7.5, color: C.goldLight, sp: 10 }), { after: 0 }),
+    p(r(t.tag2, { pt: 7.5, color: C.goldLight }), {
+      after: 180, border: { bottom: { style: d.BorderStyle.SINGLE, size: 6, color: C.gold, space: 6 } },
     }),
     ...t.stats.flatMap(([n, l]) => stat(n, l)),
     p(r('Tiếng Việt · English · 中文', { pt: 7.5, b: true, color: C.white }), { before: 20, after: 20 }),
-    p(r('richelaw.vn', { pt: 8.5, b: true, color: 'E8C98F' }), { after: opts.front ? 40 : 0 }),
+    p(r('richelaw.vn', { pt: 8.5, b: true, color: C.goldLight }), { after: opts.front ? 40 : 0 }),
     ...(opts.front ? [
       p(r('0973 239 802', { pt: 8.5, b: true, color: C.white }), { after: 0 }),
       p(r('nhom2lkd@gmail.com', { pt: 8, color: C.paleGreenText }), { after: 0 }),
     ] : []),
-  ], { w: LW, fill: C.green, m: { top: 280, bottom: 160, left: 300, right: 260 } });
+  ], { w: LW, fill: C.green, m: { top: 260, bottom: 120, left: 280, right: 280 } });
 
   const body = (s) => p(r(s, { pt: 9 * k }), { after: 80, line: 252, align: d.AlignmentType.JUSTIFIED });
   const right = cell([
@@ -42,7 +45,8 @@ function build(t, opts = {}) {
     ...t.body.slice(2).map(body),
     p(r(t.closing, { pt: 9 * k }), { before: 0, after: 10 }),
     p(r(t.signer, { pt: 10, b: true, color: C.green }), { after: 0 }),
-    p(r(t.signerSub, { pt: 8, color: C.muted }), { after: 110 }),
+    p(r(t.signerSub, { pt: 8, color: C.muted }), { after: 0 }),
+    p(r(t.addr, { pt: 7.5, color: C.muted }), { after: 100 }),
     p([
       r(t.promiseLabel + '   ', { pt: 7.5, b: true, color: C.gold, sp: 20 }),
       r(t.promise, { pt: 8.5, b: true, color: C.green }),
@@ -82,12 +86,13 @@ function build(t, opts = {}) {
   const val = (s) => r(s, { pt: 9.5, b: true, color: C.white });
   const contactBar = table([CW], [[cell([
     p([
-      r(t.talk + '   ', { pt: 8, b: true, color: 'E8C98F', sp: 20 }),
+      r(t.talk + '   ', { pt: 8, b: true, color: C.goldLight, sp: 20 }),
       lbl(t.hotline), val('0973 239 802'),
       lbl('     Email: '), val('nhom2lkd@gmail.com'),
       lbl('     Website: '), val('richelaw.vn'),
-    ], { after: 0, align: d.AlignmentType.CENTER }),
-  ], { w: CW, fill: C.green, m: { top: 140, bottom: 140, left: 120, right: 120 } })]]);
+    ], { after: 20, align: d.AlignmentType.CENTER }),
+    p(r(t.addr, { pt: 7.5, color: C.paleGreenText }), { after: 0, align: d.AlignmentType.CENTER }),
+  ], { w: CW, fill: C.green, m: { top: 110, bottom: 110, left: 120, right: 120 } })]]);
 
   const side2 = [
     p(r(t.why, { pt: 7.5, b: true, color: C.gold, sp: 30 }), { after: 30, pbb: true }),
@@ -133,7 +138,7 @@ const bilingual = new d.Document({
     },
     // one table, two full-height rows that cannot split: English fills side 1, Chinese side 2
     children: [
-      table([LW, RW], [build(T.EN, { front: true }), build(T.ZH, { front: true })], { heights: [H - 2 * M - 500, H - 2 * M - 500] }),
+      table([LW, RW], [build({ ...T.EN, code: 'EN' }, { front: true }), build({ ...T.ZH, code: 'ZH' }, { front: true })], { heights: [H - 2 * M - 500, H - 2 * M - 500] }),
       tiny(),
     ],
   }],
@@ -143,7 +148,7 @@ d.Packer.toBuffer(bilingual).then((b) => {
   console.log('letter EN-ZH ok');
 });
 for (const [code, t] of Object.entries(T)) {
-  d.Packer.toBuffer(build(t)).then((b) => {
+  d.Packer.toBuffer(build({ ...t, code })).then((b) => {
     fs.writeFileSync(`output/Riche_Law_Thu_Moi_${code}_A5.docx`, b);
     console.log('letter', code, 'ok');
   });

@@ -2,9 +2,10 @@
 const d = require('docx');
 
 const C = {
-  green: '1B4D3E', greenSoft: 'E6EFEA', greenMid: '2D6A55',
-  gold: 'B8873B', goldSoft: 'FBF3E4', ink: '1C2420', muted: '5E6A63',
-  line: 'D9DFD9', seal: 'B3261E', white: 'FFFFFF', paleGreenText: 'CFE3D9',
+  // Riche Law brand: navy + gold sampled from the logo (names kept for compatibility)
+  green: '0C385C', greenSoft: 'E8EEF5', greenMid: '1F5280', goldLight: 'D9BE74',
+  gold: 'A8893A', goldSoft: 'FAF5E6', ink: '1C2420', muted: '5E6A63',
+  line: 'D5DCE4', seal: 'B3261E', white: 'FFFFFF', paleGreenText: 'C8D5E2',
 };
 
 // Montserrat for Latin/Vietnamese, a CJK font for Chinese characters
@@ -58,4 +59,13 @@ function table(widths, rows, o = {}) {
 
 const spacer = (after = 80) => p(r('', { pt: 2 }), { after });
 
-module.exports = { d, C, FONT, r, p, cell, table, line, spacer, NB, cellNoBorders, noBorders };
+const LOGO = require('fs').readFileSync(require('path').join(__dirname, '..', 'assets', 'logo.png'));
+// full Riche Law logo (900x792 source); width in px at 96 dpi
+const logo = (w) => new d.ImageRun({ type: 'png', data: LOGO, transformation: { width: w, height: Math.round(w * 792 / 900) } });
+const ADDR = {
+  VI: '35 ngõ 45 Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội',
+  EN: 'No. 35, Lane 45 Tran Thai Tong, Dich Vong, Cau Giay, Hanoi',
+  ZH: '河内市纸桥郡驿望坊陈太宗街45巷35号',
+};
+
+module.exports = { logo, ADDR, d, C, FONT, r, p, cell, table, line, spacer, NB, cellNoBorders, noBorders };
