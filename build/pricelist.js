@@ -26,7 +26,8 @@ const label = (t, color = C.gold) => p(r(t, { pt: 6.5, b: true, color, sp: 20, c
 // ---------- Header band ----------
 const header = table([CW], [[cell([
   p([r('RICHE LAW', { pt: 18, b: true, color: C.white, sp: 40 }),
-     r('    Bảng giá dịch vụ  ·  Service Price List  ·  服务价目表', { pt: 9, color: 'E8C98F' })], { after: 40 }),
+     r('    Bảng giá dịch vụ  ·  Service Price List  ·  服务价目表', { pt: 9, color: 'E8C98F' }),
+     r('      richelaw.vn', { pt: 9, b: true, color: C.white })], { after: 40 }),
   p(r('Pháp lý · Kế toán · Nhân sự cho doanh nghiệp tại Việt Nam   |   Legal · Accounting · HR for businesses in Vietnam   |   越南企业法律·会计·人事服务',
     { pt: 6.5, color: C.paleGreenText }), { after: 0 }),
 ], { w: CW, fill: C.green, m: { top: 170, bottom: 150, left: 220, right: 220 } })]]);
@@ -173,9 +174,9 @@ const priceTag = (amount, unitVi, unitEn, unitZh, chips, w) => cell([
   label('Phí trọn gói · Package fee · 全包费用', C.gold),
   p([r(amount, { pt: 16, b: true, color: C.green }), r(' ' + unitVi, { pt: 7, b: true, color: C.muted })], { after: 0, line: 220 }),
   p(r(`${unitEn} · ${unitZh}`, { pt: 6, color: C.muted }), { after: 80 }),
-  ...chips.flatMap(([vi, en, zh]) => [
-    p(r(vi, { pt: 6.5, b: true, color: C.green }), { after: 0, line: 215 }),
-    p(r(`${en} · ${zh}`, { pt: 6, color: C.muted }), { after: 60, line: 215 }),
+  ...chips.flatMap(([vi, en, zh, hot]) => [
+    p(r(vi, { pt: hot ? 7 : 6.5, b: true, color: hot ? 'C62828' : C.green }), { after: 0, line: 215 }),
+    p(r(`${en} · ${zh}`, { pt: 6, b: !!hot, color: hot ? 'C62828' : C.muted }), { after: 60, line: 215 }),
   ]),
 ], { w, fill: C.goldSoft, m: { top: 140, bottom: 120, left: 160, right: 120 }, borders: { top: line(C.gold, 8), bottom: line(C.gold, 8), left: line(C.gold, 8), right: line(C.gold, 8) } });
 
@@ -270,7 +271,8 @@ const startup = {
   no: '03', title: ['Combo Khởi Nghiệp An Tâm', 'Startup Combo', '安心创业套餐'],
   lead: ['Từ giấy phép đến hóa đơn đầu tiên, kèm tư vấn pháp lý, quản trị và marketing 6 tháng đầu. Một đầu mối, một mức giá.',
     'From licence to first invoice, plus 6 months of support.', '从执照到首张发票，附赠6个月支持。'],
-  price: ['20.000.000', 'VNĐ', 'VND, one-off', '越南盾（一次性）', [
+  price: ['20.000.000', 'VNĐ', 'VND · Vietnamese-owned companies', '越南盾 · 越南资本企业', [
+    ['DN nước ngoài: Báo giá sau – Giá tốt nhất thị trường', 'Foreign companies: quote on request, best market price', '外资企业：另行报价，市场最优价格', true],
     ['5–7 ngày làm việc', '5–7 working days', '5–7个工作日'],
     ['Công ty TNHH · Cổ phần', 'LLC · Joint stock company', '有限公司·股份公司'],
     ['Không phát sinh trong phạm vi gói', 'No extra cost within scope', '套餐范围内无额外费用'],
@@ -310,7 +312,7 @@ const startup = {
   ],
   terms: [
     ['Áp dụng cho doanh nghiệp vốn Việt Nam, ngành nghề không cần giấy phép con.', 'Vietnamese-owned companies, no sub-licence lines', '适用越南资本企业、无需分项许可的行业'],
-    ['Ngành có điều kiện, DN vốn nước ngoài: báo giá riêng. Thời gian tính từ khi đủ hồ sơ, chữ ký.', 'Conditional lines & FDI companies quoted separately', '附条件行业及外资企业另行报价'],
+    ['Ngành có điều kiện: báo giá riêng. DN vốn nước ngoài: báo giá sau, giá tốt nhất thị trường.', 'Conditional lines quoted separately; foreign companies: best market price', '附条件行业另行报价；外资企业享市场最优价'],
   ],
 };
 
@@ -319,6 +321,7 @@ const footer = table([CW], [[cell([
     r('LIÊN HỆ · CONTACT · 联系我们     ', { pt: 7.5, b: true, color: 'E8C98F', sp: 10 }),
     r('Hotline / Zalo: ', { pt: 7.5, color: C.paleGreenText }), r('0973 239 802', { pt: 10, b: true, color: C.white }),
     r('     Email: ', { pt: 7.5, color: C.paleGreenText }), r('nhom2lkd@gmail.com', { pt: 10, b: true, color: C.white }),
+    r('     Website: ', { pt: 7.5, color: C.paleGreenText }), r('richelaw.vn', { pt: 10, b: true, color: C.white }),
   ], { after: 20, align: d.AlignmentType.CENTER }),
   p(r('Công ty TNHH Đầu tư Riche Law · Riche Law Investment Co., Ltd. · Hà Nội, Việt Nam', { pt: 6.5, color: C.paleGreenText }), { after: 0, align: d.AlignmentType.CENTER }),
 ], { w: CW, fill: C.green, m: { top: 120, bottom: 110, left: 160, right: 160 } })]]);
