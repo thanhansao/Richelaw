@@ -8,7 +8,7 @@ const CW = W - 2 * M;
 const LW = 3300, RW = CW - LW;
 const RED = 'C62828';
 
-function build(t) {
+function build(t, opts = {}) {
   const k = t.scale || 1;                  // per-language body size factor
   // ---------- Side 1: brand panel + letter ----------
   const stat = (num, label) => [
@@ -23,7 +23,11 @@ function build(t) {
     }),
     ...t.stats.flatMap(([n, l]) => stat(n, l)),
     p(r('Tiếng Việt · English · 中文', { pt: 7.5, b: true, color: C.white }), { before: 20, after: 20 }),
-    p(r('richelaw.vn', { pt: 8.5, b: true, color: 'E8C98F' }), { after: 0 }),
+    p(r('richelaw.vn', { pt: 8.5, b: true, color: 'E8C98F' }), { after: opts.front ? 40 : 0 }),
+    ...(opts.front ? [
+      p(r('0973 239 802', { pt: 8.5, b: true, color: C.white }), { after: 0 }),
+      p(r('nhom2lkd@gmail.com', { pt: 8, color: C.paleGreenText }), { after: 0 }),
+    ] : []),
   ], { w: LW, fill: C.green, m: { top: 280, bottom: 160, left: 300, right: 260 } });
 
   const body = (s) => p(r(s, { pt: 9 * k }), { after: 80, line: 252, align: d.AlignmentType.JUSTIFIED });
@@ -46,7 +50,8 @@ function build(t) {
     p(r(t.discount, { pt: 10, b: true, color: RED }), { after: 0 }),
   ], { w: RW, m: { top: 240, bottom: 40, left: 420, right: 120 } });
 
-  const side1 = table([LW, RW], [[left, right]], { heights: [H - 2 * M - 300] });
+  const side1 = table([LW, RW], [[left, right]], { heights: [H - 2 * M - (opts.front ? 800 : 400)] });
+  if (opts.front) return side1;
 
   // ---------- Side 2: needs → answers, packages, contact ----------
   const GAP = 120, CARD = Math.floor((CW - 2 * GAP) / 3), CW3 = CW - 2 * GAP - 2 * CARD;
@@ -113,6 +118,26 @@ function build(t) {
 }
 
 fs.mkdirSync('output', { recursive: true });
+
+// Bilingual edition: English on side 1, Chinese on side 2
+const tiny = (o = {}) => p(r('', { pt: 1 }), { after: 0, line: 20, ...o });
+const bilingual = new d.Document({
+  creator: 'Riche Law', title: 'Invitation to Partner · 合作邀请函 — Riche Law',
+  styles: { default: { document: { run: { font: 'Montserrat', size: 18 } } } },
+  sections: [{
+    properties: {
+      page: {
+        size: { width: H, height: W, orientation: d.PageOrientation.LANDSCAPE },
+        margin: { top: M, bottom: M, left: M, right: M, header: 200, footer: 200 },
+      },
+    },
+    children: [tiny(), build(T.EN, { front: true }), tiny({ pbb: true }), build(T.ZH, { front: true }), tiny()],
+  }],
+});
+d.Packer.toBuffer(bilingual).then((b) => {
+  fs.writeFileSync('output/Riche_Law_Thu_Moi_EN-ZH_A5.docx', b);
+  console.log('letter EN-ZH ok');
+});
 for (const [code, t] of Object.entries(T)) {
   d.Packer.toBuffer(build(t)).then((b) => {
     fs.writeFileSync(`output/Riche_Law_Thu_Moi_${code}_A5.docx`, b);
