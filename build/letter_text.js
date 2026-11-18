@@ -7,6 +7,7 @@ module.exports = {
     eyebrow: 'INVITATION TO PARTNER',
     title: 'Your trusted legal partner for investing in Vietnam',
     dear: 'Dear Valued Partners,',
+    highlight: 'We are the only firm in Vietnam offering foreign businesses free market and marketing advice, in English and Chinese, to help them build a lasting business in Vietnam.',
     body: [
       'Vietnam rewards investors who move fast, and penalises those who misstep. Investment certificates, tax filings, social insurance and work permits all follow local rules that change often and are written in Vietnamese. Riche Law Investment Co., Ltd. warmly invites your company to partner with us, so that you can focus on growing your business while we take care of the legal side of investing in Vietnam: from the first licence to the first invoice, and every compliance deadline after that.',
       'Built on 15 years of work with Vietnamese partners and 5 years serving foreign investors, Riche Law today supports more than 200 foreign-invested enterprises. We offer one point of contact, fixed all-inclusive pricing with no surprises, and a team that works with you in English and Chinese.',
@@ -38,12 +39,13 @@ module.exports = {
   },
 
   VI: {
-    docTitle: 'Thư mời hợp tác — Riche Law',
+    docTitle: 'Thư mời hợp tác — Riche Law', scale: 0.95,
     tag1: 'Pháp lý · Kế toán · Nhân sự', tag2: 'cho nhà đầu tư nước ngoài tại Việt Nam',
     stats: [['15 năm', 'đồng hành cùng đối tác và doanh nghiệp trong nước'], ['5 năm', 'chuyên phục vụ khách hàng nước ngoài'], ['200+', 'doanh nghiệp nước ngoài đã tin dùng']],
     eyebrow: 'THƯ MỜI HỢP TÁC',
     title: 'Đối tác pháp lý tin cậy khi đầu tư vào Việt Nam',
     dear: 'Kính gửi Quý Đối tác,',
+    highlight: 'Chúng tôi là đơn vị duy nhất tại Việt Nam miễn phí tư vấn về thị trường và marketing cho doanh nghiệp nước ngoài, trợ giúp doanh nghiệp nước ngoài làm ăn lâu dài tại Việt Nam bằng tiếng Anh và tiếng Trung.',
     body: [
       'Việt Nam mở ra cơ hội lớn cho nhà đầu tư hành động nhanh, nhưng không dễ dãi với sai sót. Giấy chứng nhận đầu tư, kê khai thuế, bảo hiểm xã hội hay giấy phép lao động đều theo quy định riêng, thay đổi thường xuyên và chỉ ban hành bằng tiếng Việt. Công ty TNHH Đầu tư Riche Law trân trọng kính mời Quý Công ty hợp tác, để Quý Công ty tập trung phát triển kinh doanh, còn chúng tôi lo trọn phần pháp lý: từ giấy phép đầu tiên, hóa đơn đầu tiên đến mọi thời hạn tuân thủ sau đó.',
       'Với 15 năm đồng hành cùng đối tác trong nước và 5 năm phục vụ nhà đầu tư nước ngoài, Riche Law hiện hỗ trợ hơn 200 doanh nghiệp có vốn nước ngoài. Chúng tôi mang đến một đầu mối duy nhất, giá trọn gói không phát sinh, và đội ngũ làm việc bằng tiếng Anh, tiếng Trung.',
@@ -81,6 +83,7 @@ module.exports = {
     eyebrow: '合作邀请函',
     title: '您投资越南值得信赖的法律伙伴',
     dear: '尊敬的合作伙伴：',
+    highlight: '我们是越南唯一一家以英文和中文为外国企业免费提供市场及营销咨询的机构，助力外国企业在越南长期稳健发展。',
     body: [
       '越南为行动迅速的投资者带来巨大机遇，但对失误绝不宽容。投资登记、纳税申报、社会保险和工作许可均须遵循当地法规，这些法规更新频繁，且仅以越南语发布。Riche Law投资有限责任公司诚挚邀请贵公司与我们合作：您专注于业务发展，我们为您处理在越投资的全部法律事务，从第一张执照、第一张发票，到此后的每一个合规期限。',
       '凭借15年服务越南本土合作伙伴的经验和5年服务外国投资者的积累，Riche Law目前为200余家外资企业提供支持。我们提供一站式对接、全包固定价格、无任何隐藏费用，团队可使用中文和英文与您沟通。',
