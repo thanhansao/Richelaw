@@ -50,8 +50,8 @@ function build(t, opts = {}) {
     p(r(t.discount, { pt: 10, b: true, color: RED }), { after: 0 }),
   ], { w: RW, m: { top: 240, bottom: 40, left: 420, right: 120 } });
 
-  const side1 = table([LW, RW], [[left, right]], { heights: [H - 2 * M - (opts.front ? 800 : 400)] });
-  if (opts.front) return side1;
+  const side1 = table([LW, RW], [[left, right]], { heights: [H - 2 * M - (opts.front ? 1000 : 400)] });
+  if (opts.front) return [left, right];
 
   // ---------- Side 2: needs → answers, packages, contact ----------
   const GAP = 120, CARD = Math.floor((CW - 2 * GAP) / 3), CW3 = CW - 2 * GAP - 2 * CARD;
@@ -131,7 +131,11 @@ const bilingual = new d.Document({
         margin: { top: M, bottom: M, left: M, right: M, header: 200, footer: 200 },
       },
     },
-    children: [tiny(), build(T.EN, { front: true }), tiny({ pbb: true }), build(T.ZH, { front: true }), tiny()],
+    // one table, two full-height rows that cannot split: English fills side 1, Chinese side 2
+    children: [
+      table([LW, RW], [build(T.EN, { front: true }), build(T.ZH, { front: true })], { heights: [H - 2 * M - 500, H - 2 * M - 500] }),
+      tiny(),
+    ],
   }],
 });
 d.Packer.toBuffer(bilingual).then((b) => {
