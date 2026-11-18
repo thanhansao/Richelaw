@@ -272,7 +272,7 @@ const startup = {
   lead: ['Từ giấy phép đến hóa đơn đầu tiên, kèm tư vấn pháp lý, quản trị và marketing 6 tháng đầu. Một đầu mối, một mức giá.',
     'From licence to first invoice, plus 6 months of support.', '从执照到首张发票，附赠6个月支持。'],
   price: ['20.000.000', 'VNĐ', 'VND · Vietnamese-owned companies', '越南盾 · 越南资本企业', [
-    ['DN nước ngoài: Báo giá sau – Giá tốt nhất thị trường', 'Foreign companies: quote on request, best market price', '外资企业：另行报价，市场最优价格', true],
+    ['DN nước ngoài: Báo giá sau – Giá cạnh tranh', 'Foreign companies: quote on request, competitive pricing', '外资企业：另行报价，价格具竞争力', true],
     ['5–7 ngày làm việc', '5–7 working days', '5–7个工作日'],
     ['Công ty TNHH · Cổ phần', 'LLC · Joint stock company', '有限公司·股份公司'],
     ['Không phát sinh trong phạm vi gói', 'No extra cost within scope', '套餐范围内无额外费用'],
@@ -312,7 +312,7 @@ const startup = {
   ],
   terms: [
     ['Áp dụng cho doanh nghiệp vốn Việt Nam, ngành nghề không cần giấy phép con.', 'Vietnamese-owned companies, no sub-licence lines', '适用越南资本企业、无需分项许可的行业'],
-    ['Ngành có điều kiện: báo giá riêng. DN vốn nước ngoài: báo giá sau, giá tốt nhất thị trường.', 'Conditional lines quoted separately; foreign companies: best market price', '附条件行业另行报价；外资企业享市场最优价'],
+    ['Ngành có điều kiện: báo giá riêng. DN vốn nước ngoài: báo giá sau, giá cạnh tranh.', 'Conditional lines quoted separately; foreign companies: competitive pricing', '附条件行业另行报价；外资企业价格具竞争力'],
   ],
 };
 
