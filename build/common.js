@@ -52,6 +52,7 @@ function table(widths, rows, o = {}) {
     rows: rows.map((cells, i) => new d.TableRow({
       children: cells,
       cantSplit: true,
+      tableHeader: !!(o.repeatHeader && i === 0),
       height: o.heights && o.heights[i] ? { value: o.heights[i], rule: d.HeightRule.ATLEAST } : undefined,
     })),
   });
