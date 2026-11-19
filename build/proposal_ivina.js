@@ -114,6 +114,8 @@ const summary = [
       b('“Tiếng Việt pháp lý — Ký gì, hiểu nấy”'), t(': giúp giám đốc, quản lý, chuyên gia nước ngoài '),
       b('tự đọc hiểu những giấy tờ mà pháp luật Việt Nam bắt buộc phải lập bằng tiếng Việt'),
       t(' — giấy chứng nhận doanh nghiệp, hóa đơn, tờ khai thuế, báo cáo tài chính, biên bản kỷ luật, hợp đồng thuê nhà — trên chính giấy tờ của họ.')], { after: 60, align: d.AlignmentType.JUSTIFIED }),
+    cp([b('Thông điệp: ', { color: C.green }), b('“Cứ thuê người làm. Riche Law và iVINA giúp anh/chị kiểm tra được người làm.”', { color: RED }),
+      t(' Chương trình không cạnh tranh với việc thuê trợ lý, phiên dịch, kế toán, mà giúp giám đốc kiểm soát được những người đó. Khách đã chọn thuê người thì có chương trình “Trợ lý pháp lý song ngữ” để đào tạo chính người được thuê.')], { after: 60, align: d.AlignmentType.JUSTIFIED }),
     cp([b('Độc quyền: ', { color: C.green }), t('Chương trình chỉ trao qua Riche Law, iVINA không bán lẻ ra ngoài trong thời gian hợp tác → '),
       b('ưu đãi chỉ khách Riche Law mới có', { color: RED }), t(', trở thành lý do để khách chọn Riche Law thay vì đơn vị khác.')], { after: 60, align: d.AlignmentType.JUSTIFIED }),
     cp([b('Chiều ngược lại: ', { color: C.green }), t('iVINA trao cho học viên voucher '), b('“Kiểm tra cư trú & lao động hợp pháp”'),
@@ -123,12 +125,13 @@ const summary = [
   ]),
   gap(80),
   grid([2100, 3300, CW - 2100 - 3300], ['Mã', 'Voucher', 'Trao cho ai · khi nào'], [
-    ['V1 · iVINA', 'Đọc hiểu giấy tờ công ty của bạn', 'Khách thành lập công ty / đăng ký đầu tư (IRC, ERC) — khi bàn giao giấy chứng nhận'],
-    ['V2 · iVINA', 'Đọc tờ khai thuế & báo cáo tài chính trước khi ký', 'Khách dịch vụ kế toán – thuế (gói Basic trở lên) — trước kỳ ký tờ khai đầu tiên'],
-    ['V3 · iVINA', 'Quản lý nhân sự Việt đúng luật — bằng tiếng Việt', 'Khách gói Standard, Premium có quản lý người nước ngoài — khi ký gói / tuyển nhân viên Việt đầu tiên'],
+    ['V1 · iVINA', 'Đọc hiểu giấy tờ công ty của bạn', 'Doanh nghiệp FDI nhỏ và vừa, giám đốc nước ngoài là người đại diện theo pháp luật — khi bàn giao giấy chứng nhận'],
+    ['V2 · iVINA', 'Đọc tờ khai thuế & báo cáo tài chính trước khi ký', 'Doanh nghiệp FDI nhỏ và vừa dùng dịch vụ kế toán – thuế — trước kỳ ký tờ khai đầu tiên'],
+    ['V3 · iVINA', 'Quản lý nhân sự Việt đúng luật — bằng tiếng Việt', 'Khách gói Standard, Premium; doanh nghiệp lớn đã có pháp chế, kế toán chỉ nhận voucher này — khi ký gói / tuyển nhân viên Việt đầu tiên'],
     ['V4 · iVINA', 'Tiếng Việt hành chính cho chuyên gia mới sang', 'Khách gói Giấy phép lao động — khi bàn giao giấy phép'],
     ['V5 · Riche Law', 'Kiểm tra cư trú & lao động hợp pháp 15 phút', 'Học viên nước ngoài của iVINA — khi ghi danh / giữa khóa'],
     ['V6 · Riche Law', 'Giảm 10% dịch vụ pháp lý đầu tiên', 'Học viên iVINA cần giấy phép lao động, thẻ tạm trú, gia hạn, quyết toán thuế'],
+    ['Có phí · hai bên', 'Trợ lý pháp lý song ngữ', 'Nhân viên người Việt (trợ lý, phiên dịch, admin) của khách FDI — khi khách chọn thuê người thay vì tự học'],
   ], { firstBold: true, zebra: true }),
 ];
 
@@ -166,16 +169,28 @@ const s3 = [
     ['Kết quả cầm được trong tay', 'Mỗi khách nhận “Sổ tay song ngữ giấy tờ công ty của bạn”: từng giấy tờ, từng ô quan trọng, giải nghĩa Việt – Anh hoặc Việt – Trung, kèm 100 thuật ngữ pháp lý – kế toán – lao động thường gặp.'],
     ['Ngắn, đúng lúc', 'Chỉ 1–3 buổi 90 phút, tổ chức tại văn phòng khách hoặc online, trao đúng thời điểm khách sắp phải ký hoặc sắp phải xử lý việc đó.'],
     ['Hai chuyên gia', 'Giáo viên iVINA dạy ngôn ngữ; ở buổi then chốt có chuyên viên Riche Law giải thích ý nghĩa pháp lý — điều mà trung tâm tiếng Việt hay văn phòng luật riêng lẻ không làm được.'],
+    ['Không thay người, mà kiểm soát người', 'Không khuyên khách bớt thuê trợ lý, kế toán. Chương trình giúp giám đốc kiểm tra lại được những gì người làm thuê soạn và trình ký.'],
     ['Độc quyền', 'Chỉ trao qua Riche Law; ghi rõ trên voucher “Ưu đãi dành riêng cho khách hàng Riche Law”. iVINA không bán lẻ chương trình này cho đơn vị khác trong thời gian hợp tác.'],
     ['Giá trị bằng tiền', 'Ghi “Quà tặng trị giá 2.400.000đ” thay vì “giảm 20%”; kèm “Chứng nhận hoàn thành” của iVINA — chuyên gia nước ngoài thích có chứng nhận.'],
   ], { firstBold: true, zebra: true }),
+  h3('Khi doanh nghiệp cho rằng thuê người rẻ và tiện hơn'),
+  para([t('Về chi phí vận hành, thuê một trợ lý hoặc phiên dịch song ngữ (ước tính 15–25 triệu đồng/tháng tại Hà Nội) luôn hiệu quả hơn việc giám đốc tự xử lý giấy tờ. '),
+    b('Chương trình không cạnh tranh ở điểm này.'), t(' Lợi thế nằm ở những việc thuê người không giải quyết được:')]),
+  grid([3100, CW - 3100], ['Việc thuê người không giải quyết được', 'Lý do'], [
+    ['Trách nhiệm pháp lý của người ký', 'Người đại diện theo pháp luật vẫn chịu trách nhiệm khi ký tờ khai, báo cáo, quyết định — dù người soạn là nhân viên.'],
+    ['Kiểm soát người nắm giấy tờ', 'Người giữ con dấu, chữ ký số, đọc mọi công văn là người nắm thông tin. Giám đốc không đọc được thì chỉ biết những gì được kể lại.'],
+    ['Việc không thể nhờ trung gian', 'Họp kỷ luật chính trợ lý đó, tranh chấp với kế toán, kiểm tra một hóa đơn đáng ngờ.'],
+    ['Phụ thuộc khi nhân viên nghỉ việc', 'Kiến thức đi theo người nghỉ; giám đốc phải bắt đầu lại từ đầu với người mới.'],
+  ], { firstBold: true, zebra: true }),
+  para([t('Vì vậy chương trình chỉ trao V1, V2 cho nhóm cần thật (doanh nghiệp FDI nhỏ và vừa, giám đốc nước ngoài tự ký). Doanh nghiệp lớn chỉ nhận V3. Khách đã chọn thuê người thì được giới thiệu chương trình '),
+    b('“Trợ lý pháp lý song ngữ”'), t(' (mục 6) — khách học hay thuê người, hai bên đều có doanh thu.')], { before: 80 }),
 ];
 
 // ---------------- 4. Voucher do Riche Law trao ----------------
 const V1 = voucher({ code: 'V1', issuer: 'RICHE LAW TRAO · iVINA DẠY', value: '2.400.000đ', valueNote: '2 buổi + sổ tay',
   title: 'Đọc hiểu giấy tờ công ty của bạn', sub: 'Your company documents, explained · 读懂贵公司的证照文件',
   rows: [
-    ['Dành cho', 'Giám đốc, chủ đầu tư nước ngoài của khách thành lập công ty, đăng ký đầu tư (IRC, ERC), thay đổi đăng ký.'],
+    ['Dành cho', 'Giám đốc, chủ đầu tư nước ngoài là người đại diện theo pháp luật của doanh nghiệp FDI nhỏ và vừa, khi thành lập công ty, đăng ký đầu tư (IRC, ERC), thay đổi đăng ký. Doanh nghiệp lớn đã có pháp chế không cần voucher này.'],
     ['Thời điểm trao', 'Ngay khi Riche Law bàn giao giấy chứng nhận — lúc khách vừa cầm trên tay giấy tờ toàn tiếng Việt.'],
     ['Nội dung', ['Buổi 1 (iVINA): đọc giấy chứng nhận đăng ký đầu tư, đăng ký doanh nghiệp, điều lệ — các ô quan trọng: vốn, ngành nghề, người đại diện, thời hạn.',
       'Buổi 2 (iVINA + Riche Law 30 phút): hóa đơn mẫu, con dấu, thông báo thuế, công văn thường gặp; những chữ ký nào giám đốc phải tự chịu trách nhiệm.']],
@@ -189,7 +204,7 @@ const V1 = voucher({ code: 'V1', issuer: 'RICHE LAW TRAO · iVINA DẠY', value:
 const V2 = voucher({ code: 'V2', issuer: 'RICHE LAW TRAO · iVINA DẠY', value: '1.500.000đ', valueNote: '1 buổi + checklist',
   title: 'Đọc tờ khai thuế & báo cáo tài chính trước khi ký', sub: 'Read before you sign: tax returns & financial statements · 签字前看懂报税表与财报',
   rows: [
-    ['Dành cho', 'Giám đốc, kế toán trưởng người nước ngoài của khách dùng dịch vụ kế toán – thuế (gói Basic, Standard, Premium).'],
+    ['Dành cho', 'Giám đốc người nước ngoài (người ký tờ khai, báo cáo) của doanh nghiệp FDI nhỏ và vừa dùng dịch vụ kế toán – thuế của Riche Law.'],
     ['Thời điểm trao', 'Trước kỳ ký tờ khai thuế quý đầu tiên hoặc báo cáo tài chính năm đầu tiên.'],
     ['Nội dung', 'iVINA: từ vựng và cấu trúc tờ khai GTGT, TNDN, TNCN, báo cáo tài chính. Riche Law (30 phút): 20 chỉ tiêu phải nhìn trước khi ký, dấu hiệu bất thường cần hỏi lại kế toán.'],
     ['Khách nhận được', '“Checklist 20 điểm trước khi ký” song ngữ + giải nghĩa tờ khai của chính công ty khách + giảm 20% khóa đầy đủ.'],
@@ -224,7 +239,7 @@ const V4 = voucher({ code: 'V4', issuer: 'RICHE LAW TRAO · iVINA DẠY', value:
   ] });
 
 const s4 = [
-  h1('4', 'Bộ voucher Riche Law trao cho khách (iVINA thực hiện)', { pbb: true }),
+  h1('4', 'Bộ voucher Riche Law trao cho khách (iVINA thực hiện)'),
   para([t('Mỗi voucher gắn với một việc bắt buộc, trao đúng thời điểm, có kết quả cầm được trong tay. Tất cả đều kèm '), b('giảm 20% khóa tiếng Việt đầy đủ tại iVINA'), t(' để khách học tiếp.')]),
   V1, gap(140), V2, gap(140), V3, gap(140), V4,
 ];
@@ -254,9 +269,47 @@ const s5 = [
   V5, gap(140), V6,
 ];
 
+// ---------------- 6. Chương trình bổ sung ----------------
+const s6b = [
+  h1('6', 'Chương trình có phí: “Trợ lý pháp lý song ngữ”'),
+  para([t('Dành cho khách chọn '), b('thuê người'), t(' thay vì tự học: đào tạo chính nhân viên người Việt của khách để họ làm việc minh bạch, đúng hạn và báo cáo được cho giám đốc nước ngoài.')]),
+  grid([2300, CW - 2300], ['Hạng mục', 'Nội dung'], [
+    ['Đối tượng', 'Trợ lý, phiên dịch, nhân viên hành chính người Việt của doanh nghiệp FDI.'],
+    ['Riche Law (4 buổi)', 'Thuật ngữ pháp lý – kế toán song ngữ; lịch tuân thủ trong năm (thuế, BHXH, báo cáo); đọc và tóm tắt công văn cho giám đốc; quy tắc quản lý con dấu, chữ ký số, hồ sơ.'],
+    ['iVINA (2 buổi)', 'Giao tiếp liên văn hóa với cấp trên người nước ngoài: báo cáo, góp ý, xử lý hiểu lầm. (Cần iVINA xác nhận năng lực triển khai nội dung này.)'],
+    ['Kết quả', 'Mẫu báo cáo tuần song ngữ cho giám đốc: việc đã làm, giấy tờ đã ký, hạn sắp tới — giám đốc kiểm soát được mà không cần tự đọc mọi văn bản.'],
+    ['Giá ước tính', '6.000.000đ/người; khách Riche Law giảm 20%. Mỗi bên thu phí phần buổi do mình giảng dạy.'],
+    ['Lý do', 'Biến phương án “thuê người” — vốn là đối thủ của chương trình — thành một nguồn doanh thu cho cả hai bên.'],
+  ], { firstBold: true, zebra: true }),
+];
+
+// ---------------- 7. Điểm mạnh – điểm yếu ----------------
+const s6c = [
+  h1('7', 'Đánh giá thẳng thắn: điểm mạnh, điểm yếu và lý do'),
+  para(t('Phần này để hai bên cùng hiểu chương trình mạnh ở đâu, yếu ở đâu và vì sao, trước khi cam kết triển khai.')),
+  h3('Điểm mạnh'),
+  grid([2800, 3500, CW - 2800 - 3500], ['Điểm mạnh', 'Biểu hiện', 'Vì sao'], [
+    ['Gắn với việc bắt buộc theo luật', 'Khách thấy voucher là thứ cần, không phải quà phụ', 'Kế toán, hóa đơn, kỷ luật lao động, hồ sơ Nhà nước bắt buộc bằng tiếng Việt; người ký chịu trách nhiệm'],
+    ['Khác biệt và độc quyền', 'Riche Law có lý do để khách chọn mình; iVINA có kênh tiếp cận khách FDI', 'Trung tâm tiếng Việt không tư vấn được luật; văn phòng luật không dạy được tiếng'],
+    ['Cá nhân hóa trên giấy tờ thật', 'Khách thấy kết quả ngay: sổ tay song ngữ về chính công ty mình', 'Học xong dùng được ngay, khác hẳn khóa học lý thuyết'],
+    ['Chi phí mỗi voucher thấp', '0,35–1,05 triệu đồng/voucher', 'Rất nhỏ so với giá trị hợp đồng Riche Law (từ 20 triệu đồng trở lên), dễ duy trì lâu dài'],
+    ['Hai chiều, cùng một khách hàng', 'Mỗi bên có nguồn khách đúng đối tượng', 'Riche Law gặp người nước ngoài sớm nhất (khi xin giấy phép); iVINA giữ họ lâu nhất (học dài hạn)'],
+  ], { firstBold: true, zebra: true }),
+  h3('Điểm yếu và cách khắc phục'),
+  grid([2500, 3100, CW - 2500 - 3100], ['Điểm yếu', 'Vì sao', 'Cách khắc phục'], [
+    ['Thuê người rẻ và tiện hơn', 'Nhiều doanh nghiệp sẽ chọn thuê trợ lý, phiên dịch thay vì để giám đốc học', 'Định vị “kiểm soát người làm”; chương trình “Trợ lý pháp lý song ngữ”'],
+    ['Không phải khách nào cũng cần', 'Doanh nghiệp lớn đã có pháp chế, kế toán, nhân sự', 'Chia nhóm: V1, V2 cho doanh nghiệp nhỏ và vừa; doanh nghiệp lớn chỉ nhận V3'],
+    ['Giám đốc nước ngoài ít thời gian', 'Tỷ lệ dùng voucher có thể thấp', 'Chỉ 1–3 buổi, tại văn phòng khách hoặc online; đặt lịch sẵn khi ký hợp đồng'],
+    ['Cần khách đồng ý chia sẻ giấy tờ', 'Một số khách ngại đưa giấy tờ nội bộ cho bên thứ ba', 'Dùng bản đã che thông tin hoặc bộ giấy tờ mẫu; iVINA ký cam kết bảo mật'],
+    ['Lợi ích ngắn hạn chưa đều giữa hai bên', 'Riche Law có doanh thu ngay khi chốt hợp đồng; doanh thu của iVINA phụ thuộc việc khách học tiếp, đến chậm hơn và chưa chắc chắn', 'Theo dõi riêng chỉ số chuyển đổi của iVINA; hai bên rà soát sau tháng đầu để điều chỉnh'],
+    ['Phụ thuộc chất lượng của cả hai bên', 'Một buổi học hoặc buổi tư vấn kém ảnh hưởng uy tín cả hai', 'Thỏa thuận cam kết chất lượng; khảo sát sau mỗi buổi'],
+    ['Thử nghiệm ngắn, trùng Tết', '3 tháng, có Tết Đinh Mùi (đầu tháng 02/2027)', 'Đánh giá chủ yếu trên số liệu tháng 12 và 01; cân nhắc kéo dài thêm 1 tháng nếu cần'],
+  ], { firstBold: true, zebra: true }),
+];
+
 // ---------------- 6. Kịch bản tư vấn ----------------
 const s6 = [
-  h1('6', 'Kịch bản tư vấn: dùng voucher để tăng tỷ lệ chốt đơn'),
+  h1('8', 'Kịch bản tư vấn: dùng voucher để tăng tỷ lệ chốt đơn'),
   para([t('Voucher chỉ giúp chốt đơn khi được đưa ra '), b('đúng lúc trong buổi tư vấn'), t(' và gắn với nỗi lo khách vừa nói ra. Quy trình đề xuất cho chuyên viên tư vấn Riche Law:')]),
   grid([1500, 4100, CW - 1500 - 4100], ['Bước', 'Chuyên viên làm gì / nói gì', 'Mẫu câu tiếng Anh'], [
     ['1. Hỏi', 'Hỏi về người sẽ ký giấy tờ: “Ai trong công ty sẽ ký hóa đơn, tờ khai thuế, quyết định nhân sự? Người đó đọc được tiếng Việt không?”', '“Who will sign invoices and tax returns? Can they read Vietnamese?”'],
@@ -269,6 +322,7 @@ const s6 = [
   h3('Trả lời các phản đối thường gặp'),
   grid([3000, CW - 3000], ['Khách nói', 'Chuyên viên trả lời'], [
     ['“Tôi có phiên dịch / kế toán rồi.”', 'Rất tốt — chương trình không thay phiên dịch, mà giúp anh/chị kiểm tra lại được những gì mình ký. Người ký vẫn là anh/chị.'],
+    ['“Thuê người rẻ hơn.”', 'Đúng vậy, anh/chị cứ thuê. Chương trình giúp anh/chị kiểm tra được người mình thuê; nếu muốn, Riche Law và iVINA đào tạo luôn trợ lý của anh/chị (“Trợ lý pháp lý song ngữ”).'],
     ['“Tôi không có thời gian học tiếng.”', 'Chỉ 1–3 buổi, tại văn phòng anh/chị hoặc online, học ngay trên giấy tờ công ty mình — không phải khóa học dài.'],
     ['“Tôi không ở Việt Nam lâu.”', 'Vậy càng cần hiểu đúng những gì đã ký trước khi rời đi; sổ tay song ngữ dùng được cả khi anh/chị ở nước ngoài.'],
     ['“Đơn vị khác rẻ hơn.”', 'Đơn vị khác chỉ làm thủ tục. Riche Law làm thủ tục và giúp anh/chị tự kiểm soát giấy tờ sau đó — chương trình này chỉ có ở Riche Law.'],
@@ -277,7 +331,7 @@ const s6 = [
 
 // ---------------- 7. Vận hành ----------------
 const s7 = [
-  h1('7', 'Quy trình vận hành voucher'),
+  h1('9', 'Quy trình vận hành voucher'),
   grid([700, 3000, 2600, CW - 700 - 3000 - 2600], ['#', 'Việc', 'Phụ trách', 'Thời hạn'], [
     ['1', 'Sự kiện kích hoạt (bàn giao giấy phép, ký gói, ghi danh học…)', 'Bên trao voucher', '—'],
     ['2', 'Phát voucher điện tử có mã riêng, ghi tên khách, giá trị bằng tiền, hạn dùng', 'Bên trao voucher', 'Trong 1 ngày làm việc'],
@@ -295,7 +349,7 @@ const s7 = [
 
 // ---------------- 8. Chi phí & hiệu quả ----------------
 const s8 = [
-  h1('8', 'Chi phí mỗi bên tự chịu và hiệu quả kỳ vọng (ước tính 3 tháng)'),
+  h1('10', 'Chi phí mỗi bên tự chịu và hiệu quả kỳ vọng (ước tính 3 tháng)'),
   grid([1600, 1700, 1800, 2100, CW - 1600 - 1700 - 1800 - 2100], ['Voucher', 'Số lượng', 'Chi phí/voucher', 'Tổng chi phí', 'Bên chịu'], [
     ['V1', '8', '~700.000đ', '5.600.000đ', 'iVINA (giáo viên) · RL soạn sổ tay'],
     ['V2', '10', '~350.000đ', '3.500.000đ', 'iVINA · RL 30 phút'],
@@ -321,7 +375,7 @@ const s8 = [
 
 // ---------------- 9. Cam kết & lộ trình ----------------
 const s9 = [
-  h1('9', 'Cam kết hai bên và lộ trình triển khai'),
+  h1('11', 'Cam kết hai bên và lộ trình triển khai'),
   grid([CW / 2, CW / 2], ['iVINA cam kết', 'Riche Law cam kết'], [[
     [cp(ct('• Thiết kế chương trình “Tiếng Việt pháp lý” (V1–V4), giáo trình trên giấy tờ thực tế, sổ tay song ngữ.')),
       cp(ct('• Không bán lẻ chương trình này, không hợp tác tương tự với đơn vị luật khác trong thời gian hợp tác.')),
@@ -368,7 +422,7 @@ const doc = new d.Document({
   sections: [{
     properties: { page: { size: { width: W, height: 16838 }, margin: { top: M, bottom: M + 100, left: M, right: M, header: 300, footer: 360 } } },
     footers: { default: pageFooter },
-    children: [header, ...meta, ...summary, ...s1, ...s2, ...s3, ...s4, ...s5, ...s6, ...s7, ...s8, ...s9, note, footer],
+    children: [header, ...meta, ...summary, ...s1, ...s2, ...s3, ...s4, ...s5, ...s6b, ...s6c, ...s6, ...s7, ...s8, ...s9, note, footer],
   }],
 });
 
